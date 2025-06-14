@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calculadora Zoada Hardcore</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: monospace;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input, select, button {
+      font-size: 20px;
+      padding: 10px;
+      margin: 5px;
+      background-color: #222;
+      color: #fff;
+      border: 2px solid #ff4444;
+      border-radius: 8px;
+    }
+    button:hover {
+      background-color: #ff0000;
+      color: #000;
+      cursor: pointer;
+    }
+    #resultado {
+      margin-top: 30px;
+      font-size: 24px;
+    }
+    .tremor {
+      animation: tremer 0.2s infinite;
+    }
+    @keyframes tremer {
+      0% { transform: translateX(-2px); }
+      50% { transform: translateX(2px); }
+      100% { transform: translateX(-2px); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Calculadora Bruta e Zoando 🔥</h1>
+  <input id="num1" type="number" placeholder="Número 1" />
+  <select id="op">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+  </select>
+  <input id="num2" type="number" placeholder="Número 2" />
+  <br />
+  <button onclick="calcular()">Calcular</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    const xingamentos = [
+      "Ô jumento, digita dois números, pelo amor!",
+      "Tá difícil entender o básico, é?",
+      "Minha calculadora de papel faria melhor!",
+      "Coloca os número, abestado!",
+      "Tá tentando invocar o capeta dividindo por zero?",
+      "Isso aqui não é jogo da velha, mané!",
+      "Vai estudar, depois cê volta!",
+      "Cê digitou isso com o nariz, foi?",
+      "Bicho burro até dói!",
+      "Tá tentando quebrar o sistema?",
+      "Tua mãe sabe que você tá fazendo isso?",
+      "Olha, isso foi triste de ver...",
+      "Erro nível: Free Fire sem internet!",
+      "Nem o Valmet do seu pai engasga tanto assim!",
+      "Maluco, tu tá perdido!",
+      "Que conta horrível, misericórdia!",
+      "Não, só não.",
+      "Você é o motivo dos programadores chorarem.",
+      "Erro 404: inteligência não encontrada.",
+      "A Luma teria feito melhor com a pata!",
+      "Se esforça menos que essa conta!",
+      "Burro? Não… você tá além!",
+      "O Google chora quando tu digita isso!",
+      "Vish… nem sei por onde começar a te xingar!",
+      "Tá de brincadeira com minha paciência.",
+      "Se isso fosse concurso, tu tava reprovado já.",
+      "Calculadora: 1, Você: 0",
+      "Cuidado que o teclado vai te denunciar.",
+      "Tem que parar de beber suco vencido, mano.",
+      "Tá tentando trollar? Porque tá conseguindo!",
+      "Isso aí é arte moderna? Porque matemática não é.",
+      "Já pensou em virar poeta em vez de matemático?",
+      "Burrologia nível mestre!",
+      "Jesus tá voltando e você faz isso?",
+      "Dividir por zero? Cê quer rasgar a Matrix?",
+      "Isso é pra testar minha paciência, né?",
+      "Eu sou uma calculadora, não milagrosa!",
+      "Essa conta não faz sentido nem no Multiverso.",
+      "Com esse raciocínio cê chega longe... do resultado.",
+      "Nem com fé esse cálculo dá certo.",
+      "Vai com calma, Einstein reverso!",
+      "Até um pato bêbado faria melhor!",
+      "Esse cálculo... é um insulto à matemática.",
+      "Tenta de novo, sem passar vergonha dessa vez.",
+      "Tu é burro ou só tá treinando?",
+      "Não é possível... tu fez isso mesmo?",
+      "Pede ajuda pro irmão de 5 anos, sério.",
+      "Se tu errar mais uma, vou desligar!",
+      "Tá jogando bingo com os números, é?",
+      "Mano, respira e pensa. Agora tenta de novo.",
+      "Tua lógica é um bug da vida real!"
+    ];
+
+    function calcular() {
+      const n1 = parseFloat(document.getElementById("num1").value);
+      const n2 = parseFloat(document.getElementById("num2").value);
+      const op = document.getElementById("op").value;
+      const resDiv = document.getElementById("resultado");
+      let res = 0;
+      let mensagem = "";
+
+      resDiv.classList.remove("tremor");
+
+      if (isNaN(n1) || isNaN(n2)) {
+        mensagem = "🤬 " + xingamentos[Math.floor(Math.random() * xingamentos.length)];
+        resDiv.classList.add("tremor");
+      } else if (op === "/" && n2 === 0) {
+        mensagem = "😡 " + xingamentos[Math.floor(Math.random() * xingamentos.length)];
+        resDiv.classList.add("tremor");
+      } else {
+        switch (op) {
+          case "+": res = n1 + n2; break;
+          case "-": res = n1 - n2; break;
+          case "*": res = n1 * n2; break;
+          case "/": res = n1 / n2; break;
+        }
+
+        if (res === 69) mensagem = "😏 69... safado safadinho";
+        else if (res === 420) mensagem = "🌿 420... tá em outra vibe aí né?";
+        else if (res === 666) mensagem = "😈 666... a besta despertou!";
+        else if (res === 13) mensagem = "🧿 13... vai tomar banho de sal grosso!";
+        else mensagem = `✅ Resultado: ${res}`;
+      }
+
+      resDiv.textContent = mensagem;
+    }
+  </script>
+</body>
+</html>
